@@ -2,13 +2,17 @@ version: 0.2
 
 phases:
   install:
+    run-as:root
     commands:
         - |
             yum update -y
             yum install httpd -y
             yum install -y php
-            curl -sS https://getcomposer.org/installer | php
-            mv -f composer.phar /usr/bin/composer            
+            #Install composer
+            php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+            php composer-setup.php ;
+            php -r "unlink('composer-setup.php');" ;
+            mv composer.phar /usr/local/bin/composer       
   build:
    commands:
      - echo Build started on `date`
