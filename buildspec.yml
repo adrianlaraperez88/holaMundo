@@ -3,11 +3,18 @@ version: 0.2
 phases:
   install:
     commands:
-        - echo ok
+        - |
+            yum update -y
+            yum install httpd -y
+            yum install -y php
+            curl -sS https://getcomposer.org/installer | php
+            mv -f composer.phar /usr/bin/composer            
   build:
-    commands:
-      - echo Build started on `date`
-      - echo Compiling the Python code...
+   commands:
+     - echo Build started on `date`
+     - echo Installing composer deps
+     - cd /var/www/html
+     - composer install --no-progress --no-suggest
   post_build:
     commands:
       - echo Build completed on `date`
