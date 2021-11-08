@@ -1,9 +1,9 @@
 version: 0.2
-
+env:
+  shell: /bin/sh
 phases:
-  pre_build:
+  install:
     commands:
-        - yum update -y
         - yum install httpd -y
         - yum install -y php
         - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
