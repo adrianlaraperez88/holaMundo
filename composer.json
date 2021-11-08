@@ -1,0 +1,10 @@
+{
+    "name": "adrianlaraperez88/test",
+    "type": "project",
+    "description": "Test",
+    "keywords": ["Test"],
+    "license": "MIT",
+    "require": {
+        "php": "^7.3|^8.0"
+    }
+}
