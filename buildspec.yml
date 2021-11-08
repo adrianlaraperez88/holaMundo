@@ -3,8 +3,8 @@ version: 0.2
 phases:
   install:
     commands:
-        - pip install --upgrade ndg-httpsclient
-        - python -m pip install Flask
+        - python -m pip install --upgrade pyopenssl 
+        - python -m pip install --upgrade flask
   build:
     commands:
       - echo Build started on `date`
