@@ -3,15 +3,13 @@ version: 0.2
 phases:
   install:
     commands:
-        - |
-            yum update -y
-            yum install httpd -y
-            yum install -y php
-            #Install composer
-            php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-            php composer-setup.php ;
-            php -r "unlink('composer-setup.php');" ;
-            mv composer.phar /usr/local/bin/composer       
+        - yum update -y
+        - yum install httpd -y
+        - yum install -y php
+        - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        - php composer-setup.php ;
+        - php -r "unlink('composer-setup.php');";
+        - mv composer.phar /usr/local/bin/composer       
   build:
    commands:
      - echo Build started on `date`
