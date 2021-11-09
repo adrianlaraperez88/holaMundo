@@ -2,27 +2,11 @@ version: 0.2
 phases:
  install:
    commands:
-     - |
-         #export DEBIAN_FRONTEND=noninteractive
-
-         #Install php7
-         apt-get update
-
-         # Install PHP
-         apt-get install -y php5 php5-curl curl php5-cli git
-        
-
-         #Install composer
-         php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-         php composer-setup.php ;
-         php -r "unlink('composer-setup.php');" ;
-         mv composer.phar /usr/local/bin/composer
-         composer
+     - echo 1
  build:
    commands:
      - echo Build started on `date`
      - echo Installing composer deps
-     - composer install --no-progress --no-suggest
  post_build:
    commands:
      - echo Build completed on `date`
