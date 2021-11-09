@@ -5,25 +5,25 @@ phases:
      - |
          export DEBIAN_FRONTEND=noninteractive
 
-         #Install php7.1
+         #Install php7
          apt-get update
 
          # Install PHP
-         apt-get install -y php7.4\
-                  php7.4-ldap \
-                  php7.4-xml \
-                  php7.4-xmlrpc \
-                  php7.3-zip \
-                  php7.4-mysql \
-                  php7.4-mbstring \
-                  php7.4-mcrypt \
-                  php7.4-gd \
-                  php7.4-readline \
-                  php7.4-opcache \
-                  php7.4-xdebug \
-                  php7.5-dom \
+         apt-get install -y php7\
+                  php7-ldap \
+                  php7-xml \
+                  php7-xmlrpc \
+                  php7-zip \
+                  php7-mysql \
+                  php7-mbstring \
+                  php7-mcrypt \
+                  php7-gd \
+                  php7-readline \
+                  php7-opcache \
+                  php7-xdebug \
+                  php7-dom \
                   php-xdebug \
-                  php7.4-curl \
+                  php7-curl \
                   unzip
 
          #Enable xdebug - phpunit uses this for code coverage
