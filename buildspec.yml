@@ -10,14 +10,14 @@ phases:
 
          # Install PHP
          apt-get install -y php5 php5-curl curl php5-cli git
-         curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
-        composer
+        
 
          #Install composer
-         #php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-         #php composer-setup.php ;
-         #php -r "unlink('composer-setup.php');" ;
-         #mv composer.phar /usr/local/bin/composer
+         php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+         php composer-setup.php ;
+         php -r "unlink('composer-setup.php');" ;
+         mv composer.phar /usr/local/bin/composer
+         composer
  build:
    commands:
      - echo Build started on `date`
