@@ -57,3 +57,11 @@ phases:
      # - /usr/bin/mysql  -u root -e "GRANT ALL ON *.* TO 'test'@'localhost' IDENTIFIED BY '' WITH GRANT OPTION"
      # - mysqladmin -u test create test
      - ./vendor/bin/phpunit
+artifacts:
+  files:
+    - index.php
+    - appspec.yml
+    - scripts/install_dependencies.sh
+    - scripts/composer_install.sh
+    - scripts/start_server.sh
+    - scripts/stop_server.sh
