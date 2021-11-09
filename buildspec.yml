@@ -9,22 +9,7 @@ phases:
          apt-get update
 
          # Install PHP
-         apt-get install -y php7\
-                  php7-ldap \
-                  php7-xml \
-                  php7-xmlrpc \
-                  php7-zip \
-                  php7-mysql \
-                  php7-mbstring \
-                  php7-mcrypt \
-                  php7-gd \
-                  php7-readline \
-                  php7-opcache \
-                  php7-xdebug \
-                  php7-dom \
-                  php-xdebug \
-                  php7-curl \
-                  unzip
+         apt-get install -y php7.0 php7.0-curl
 
          #Enable xdebug - phpunit uses this for code coverage
          phpenmod xdebug
@@ -34,29 +19,14 @@ phases:
          php composer-setup.php ;
          php -r "unlink('composer-setup.php');" ;
          mv composer.phar /usr/local/bin/composer
-
-         #Various handy node based dev tools - do you need these during your build? Comment if not.
-         #npm install -g gulp
-         #npm install -g grunt
-         #npm install -g webpack
-
-     # Start Mysql if you need it
-     # - apt-get install -y mysql-server
-     # - su mysql -s /bin/bash -c "/usr/sbin/mysqld" &
  build:
    commands:
      - echo Build started on `date`
      - echo Installing composer deps
      - composer install --no-progress --no-suggest
-
  post_build:
    commands:
      - echo Build completed on `date`
-     # Do you need to do this? In many cases phpunit will use sqllite or similar to avoid the need for a real DB.
-     # If you don't need it delete it
-     # - /usr/bin/mysql  -u root -e "GRANT ALL ON *.* TO 'test'@'localhost' IDENTIFIED BY '' WITH GRANT OPTION"
-     # - mysqladmin -u test create test
-     - ./vendor/bin/phpunit
 artifacts:
   files:
     - index.php
